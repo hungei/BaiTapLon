@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sản phẩm | MobiShop</title>
+    <title>MobiShop</title>
     <link rel="icon" href="../images/logo2.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/product-detail.css">
+    <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick/slick-theme.css">
@@ -20,12 +20,12 @@
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../slick-1.8.1/slick/slick.min.js"></script>
-    <script src="../js/product-detail.js" defer></script>
+    <script src="../js/product.js" defer></script>
     <script src="../js/auth.js"></script>
+
 </head>
 
 <body>
-
     <!-- top header -->
     <div class="container-fluid">
         <div class="row text-center" id="top-header">
@@ -100,7 +100,7 @@
                         CHỦ</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="../html/shop.html"><i class="fa fa-shop" aria-hidden="true"></i> CỬA
                         HÀNG</a>
                 </li>
@@ -124,11 +124,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/blog.html"> <i class="fa-solid fa-comments"></i> BÀI VIẾT</a>
+                    <a class="nav-link" href="../html/blog.html"> <i class="fa-solid fa-comments"></i> TIN TỨC</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/site-map.html"> <i class="fa-solid fa-money-check-dollar"></i>
+                    <a class="nav-link" href="../html/site-map.html"> <i class="fa-solid fa-sitemap"></i>
                         Site Map</a>
                 </li>
 
@@ -136,6 +136,8 @@
 
             <!-- nav right và mục tìm kiếm -->
             <form id="nav-form-search" class="form-inline ml-auto">
+
+
                 <!-- mục tìm kiếm -->
                 <div class="input-group" id="input-search-top">
                     <!-- Danh mục sản phẩm -->
@@ -159,6 +161,7 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
     </nav>
@@ -168,49 +171,76 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../html/index.html">Trang chủ</a></li>
             <li class="breadcrumb-item"><a href="../html/shop.html">Cửa Hàng</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+            <li class="breadcrumb-item active" aria-current="page">Tất cả sản phẩm</li>
         </ol>
     </nav>
 
     <div class="main">
-        <div class="container">
-            <div class="product-detail-box">
-                <h5 class="product-name" id="product-name"></h5> <!-- Added ID -->
-                <div class="row">
-                    <div class="col-md-5 text-center product-image">
-                        <img id="product-image" src="#" alt=""> <!-- Added ID -->
-                    </div>
-                    <div class="col-md-7">
-                        <span class="discount-badge" id="discount-badge"></span>
-                        <p class="product-description"><strong>Thông tin sản phẩm:</strong></p>
-                        <div id="product-description"></div>
-                        <p class="product-detail"><strong>Chi tiết sản phẩm:</strong></p>
-                        <div id="product-detail">
-                            <ul id="product-details-list"></ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 d-none d-sm-block" id="aside">
+                    <div class=" px-2">
+                        <div class="list-group" id="category-list-nav">
+                            <h4>Danh mục sản phẩm</h4>
+                            <a href="../html/shop.html" class="list-group-item list-group-item-action active">Tất cả sản
+                                phẩm</a>
+                            <a href="../html/iphone.html" class="list-group-item list-group-item-action">Iphone</a>
+                            <a href="../html/samsung.html" class="list-group-item list-group-item-action">Samsung</a>
+                            <a href="../html/xiaomi.html" class="list-group-item list-group-item-action">Xiaomi</a>
+                            <a href="../html/oppo.html" class="list-group-item list-group-item-action">Oppo</a>
+                            <a href="../html/realme.html" class="list-group-item list-group-item-action">Realme</a>
+                            <a href="../html/vivo.html" class="list-group-item list-group-item-action">Vivo</a>
+                            <a href="../html/nokia.html" class="list-group-item list-group-item-action">Nokia</a>
                         </div>
-                        <div class="product-price">
-                            <p class="price-original">Giá gốc: <span id="price-original"></span></p>
-                            <p class="price-discount">Giá giảm: <span id="price-discount"></span></p>
+                    </div>
+
+                    <div class="loc-san-pham my-2 mx-1 ">
+                        <div class="my-2 filterSP">
+                            <h4 class="text-center">Lọc theo giá</h4>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Từ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">-</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Đến">
+                            </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button"
-                                    id="decrease-quantity">-</button>
+                        <!-- Lọc theo giảm giá -->
+                        <div class="my-2 filterSP">
+                            <h4 class="text-center">Giảm giá</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="discount" id="discountYes">
+                                <label class="form-check-label" for="discountYes">Có giảm giá</label>
                             </div>
-                            <input type="text" class="form-control text-center" value="1" id="quantity-input">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button"
-                                    id="increase-quantity">+</button>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="discount" id="discountNo">
+                                <label class="form-check-label" for="discountNo">Không giảm giá</label>
                             </div>
                         </div>
-                        <div class="btn-custom">
-                            <button type="button" id="add-to-cart-btn" class="btn btn-info btn-custom1">Thêm vào giỏ
-                                hàng</button>
-                            <button type="button" id="buy-now-btn" class="btn btn-warning btn-custom2">Mua ngay</button>
+
+                        <div class="my-2 p-2">
+                            <button class="btn btn-block">Lọc</button>
                         </div>
                     </div>
+
                 </div>
+                <div class="col-md-9 col-sm-12" id="section">
+                    <div id="top"></div>
+                    <div id="productList" class="row">
+                        <!-- Đây là nơi để hiển thị danh sách sản phẩm -->
+                    </div>
+                    <ul id="pagination" class="pagination justify-content-center">
+                        <!-- Đây là nơi để hiển thị thanh phân trang -->
+                    </ul>
+                    <script>
+                        // Gọi hàm displayProducts khi trang đã tải xong
+                        $(document).ready(function () {
+                            displayProducts(products, 'realme'); // Gọi hàm hiển thị sản phẩm
+                        });
+                    </script>
+                </div>
+
             </div>
         </div>
         <br>
@@ -224,29 +254,8 @@
         </a>
     </div>
 
-    <!-- Modal mở giỏ hảng -->
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cartModalLabel">Sản phẩm đã được thêm vào giỏ hàng <i
-                            class="fa-solid fa-cart-shopping fa-lg" style="color: #63E6BE;"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Bạn có muốn xem giỏ hàng không?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Tiếp tục mua sắm</button>
-                    <a href="../html/shopping-cart.html" class="btn">Xem giỏ hàng</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    <!-- foooter start -->
     <footer>
         <div class="mt-5 w-100">
             <div class="container">
@@ -327,7 +336,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>

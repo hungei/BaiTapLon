@@ -4,28 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sản phẩm | MobiShop</title>
+    <title>Thành viên | MobiShop </title>
     <link rel="icon" href="../images/logo2.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/product-detail.css">
     <link rel="stylesheet" href="../css/all.css">
-    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="../css/index.css">
 
     <!-- js -->
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../slick-1.8.1/slick/slick.min.js"></script>
-    <script src="../js/product-detail.js" defer></script>
+    <script src="../js/index.js" defer></script>
     <script src="../js/auth.js"></script>
+
+
+    <style>
+        .member {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .member-image {
+            width: 170px;
+            /* Chiều rộng của hình */
+            height: 250px;
+            /* Chiều cao của hình lớn hơn chiều rộng */
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .member-image:hover {
+            transform: scale(1.1);
+            /* Phóng to hình ảnh */
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
 </head>
 
 <body>
-
     <!-- top header -->
     <div class="container-fluid">
         <div class="row text-center" id="top-header">
@@ -72,7 +95,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>            
+            </div>
         </div>
     </div>
     <!-- end top header -->
@@ -84,7 +107,7 @@
         <!-- Brand and logo -->
         <a class="navbar-brand" href="../html/index.html"><img src="../images/logo2.png" alt="logo"
                 style="width:60px;"></a>
-        <a href="" class="navbar-brand font-weight-bold">MobiShop</a>
+        <a href="../html/index.html" class="navbar-brand font-weight-bold">MobiShop</a>
         <!-- toggler hiện menu khi thu nhỏ -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +118,7 @@
         <!-- navbar links -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto" id="nav-menu-link">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="../html/index.html"><i class="fa fa-home" aria-hidden="true"></i> TRANG
                         CHỦ</a>
                 </li>
@@ -124,11 +147,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/blog.html"> <i class="fa-solid fa-comments"></i> BÀI VIẾT</a>
+                    <a class="nav-link" href="../html/blog.html"> <i class="fa-solid fa-comments"></i> TIN TỨC</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/site-map.html"> <i class="fa-solid fa-money-check-dollar"></i>
+                    <a class="nav-link" href="../html/site-map.html"> <i class="fa-solid fa-sitemap"></i>
                         Site Map</a>
                 </li>
 
@@ -136,6 +159,8 @@
 
             <!-- nav right và mục tìm kiếm -->
             <form id="nav-form-search" class="form-inline ml-auto">
+
+
                 <!-- mục tìm kiếm -->
                 <div class="input-group" id="input-search-top">
                     <!-- Danh mục sản phẩm -->
@@ -159,6 +184,7 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
     </nav>
@@ -167,86 +193,45 @@
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../html/index.html">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="../html/shop.html">Cửa Hàng</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+            <li class="breadcrumb-item active" aria-current="page">Giới thiệu thành viên</li>
         </ol>
     </nav>
 
-    <div class="main">
-        <div class="container">
-            <div class="product-detail-box">
-                <h5 class="product-name" id="product-name"></h5> <!-- Added ID -->
-                <div class="row">
-                    <div class="col-md-5 text-center product-image">
-                        <img id="product-image" src="#" alt=""> <!-- Added ID -->
-                    </div>
-                    <div class="col-md-7">
-                        <span class="discount-badge" id="discount-badge"></span>
-                        <p class="product-description"><strong>Thông tin sản phẩm:</strong></p>
-                        <div id="product-description"></div>
-                        <p class="product-detail"><strong>Chi tiết sản phẩm:</strong></p>
-                        <div id="product-detail">
-                            <ul id="product-details-list"></ul>
-                        </div>
-                        <div class="product-price">
-                            <p class="price-original">Giá gốc: <span id="price-original"></span></p>
-                            <p class="price-discount">Giá giảm: <span id="price-discount"></span></p>
-                        </div>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button"
-                                    id="decrease-quantity">-</button>
-                            </div>
-                            <input type="text" class="form-control text-center" value="1" id="quantity-input">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button"
-                                    id="increase-quantity">+</button>
-                            </div>
-                        </div>
-                        <div class="btn-custom">
-                            <button type="button" id="add-to-cart-btn" class="btn btn-info btn-custom1">Thêm vào giỏ
-                                hàng</button>
-                            <button type="button" id="buy-now-btn" class="btn btn-warning btn-custom2">Mua ngay</button>
-                        </div>
-                    </div>
-                </div>
+
+    <div class="main">
+        <h3 class="text-danger text-center" style="font-weight: bold; margin-top: -17px;">GIỚI THIỆU THÀNH VIÊN</h3>
+        <div class="member">
+            <img src="../images/thanhvien/tv1.jpg" alt="" class="member-image">
+            <div class="mem-info">
+                <h2>Lê Quốc Hưng</h2>
+                <p><strong>Mã sinh viên:</strong> 22712771</p>
+                <p><strong>Trường:</strong> Đại học Công nghiệp TP.HCM</p>
+                <p><strong>Khoa:</strong> Công Nghệ Thông Tin</p>
+                <p><strong>Số điện thoại:</strong> 0357286292</p>
+                <p><strong>Sở thích:</strong> Chơi game, Đọc sách, xem phim</p>
+            </div>
+        </div>
+
+        <div class="member">
+            <img src="../images/thanhvien/tv2.jpg" alt="" class="member-image">
+            <div class="mem-info">
+                <h2>Nguyễn Huy Khang</h2>
+                <p><strong>Mã sinh viên:</strong> 22710921</p>
+                <p><strong>Trường:</strong> Đại học Công nghiệp TP.HCM</p>
+                <p><strong>Khoa:</strong> Công Nghệ Thông Tin</p>
+                <p><strong>Số điện thoại:</strong> 0896682564</p>
+                <p><strong>Sở thích:</strong> Chơi game, Đọc sách, xem phim</p>
             </div>
         </div>
         <br>
     </div>
 
-    <!-- Biểu tượng Giỏ hàng nhỏ-->
-    <div id="cart-icon-container" class="cart-icon-container">
-        <a href="../html/shopping-cart.html">
-            <i class="fa fa-shopping-cart fa-lg"></i>
-            <span id="cart-count" class="cart-count">0</span>
-        </a>
-    </div>
 
-    <!-- Modal mở giỏ hảng -->
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cartModalLabel">Sản phẩm đã được thêm vào giỏ hàng <i
-                            class="fa-solid fa-cart-shopping fa-lg" style="color: #63E6BE;"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Bạn có muốn xem giỏ hàng không?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Tiếp tục mua sắm</button>
-                    <a href="../html/shopping-cart.html" class="btn">Xem giỏ hàng</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
+
+
+    <!-- foooter start -->
     <footer>
         <div class="mt-5 w-100">
             <div class="container">
@@ -279,7 +264,8 @@
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-globe" style="color: #63E6BE;"></i>
-                                    <a href="https://luxkaito.github.io/BTL_HTCNW/html/index.html">Website: mobishop.com.vn</a>
+                                    <a href="https://luxkaito.github.io/BTL_HTCNW/html/index.html">Website:
+                                        mobishop.com.vn</a>
                                 </li>
                             </ul>
                         </div>
@@ -329,5 +315,6 @@
     </footer>
 
 </body>
+
 
 </html>

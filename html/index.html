@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MobiShop</title>
+    <title>Trang chủ | MobiShop</title>
     <link rel="icon" href="../images/logo2.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
@@ -21,6 +21,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../slick-1.8.1/slick/slick.min.js"></script>
     <script src="../js/index.js" defer></script>
+    <script src="../js/auth.js"></script>
 
 </head>
 
@@ -41,26 +42,37 @@
                 </ul>
             </div>
             <div class="col-md-6 my-2 p-1">
-                <ul id="top-contact">
-                    <li class="list-inline-item mx-2"><a href="../html/thanh-vien.html"><i class="fa-solid fa-users"
-                                style="color: #63E6BE;"></i> Thành viên</a></li>
-                    <li class="list-inline-item mx-2"><a href="../html/shopping-cart.html"><i
-                                class="fa-solid fa-cart-shopping"></i> Giỏ
-                            hàng</a>
+                <ul id="top-contact" class="list-inline mb-0">
+                    <li class="list-inline-item mx-2">
+                        <a href="../html/thanh-vien.html">
+                            <i class="fa-solid fa-users" style="color: #63E6BE;"></i> Thành viên
+                        </a>
                     </li>
-                    <li class="list-inline-item mx-2"><a href="../html/dang-ky.html"><i class="fa-solid fa-key"
-                                style="color: #FFD43B;"></i>
-                            Đăng
-                            kí</a></li>
-                    <li class="list-inline-item mx-2 active "><a href="../html/dang-nhap.html"><i
-                                class="fa-solid fa-user"></i> Đăng
-                            nhập</a></li>
-
-                    <li class="list-inline-item mx-2"><a href="../html/lien-he.html"><i class="fa-solid fa-circle-info"
-                                style="color: #e41d07;"></i> Liên
-                            hệ</a></li>
+                    <li class="list-inline-item mx-2">
+                        <a href="../html/shopping-cart.html">
+                            <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                        </a>
+                    </li>
+                    <li id="register-link" class="list-inline-item mx-2">
+                        <a href="../html/dang-ky.html">
+                            <i class="fa-solid fa-key" style="color: #FFD43B;"></i> Đăng kí
+                        </a>
+                    </li>
+                    <li id="login-link" class="list-inline-item mx-2 active">
+                        <a href="../html/dang-nhap.html">
+                            <i class="fa-solid fa-user"></i> Đăng nhập
+                        </a>
+                    </li>
+                    <li class="list-inline-item mx-2">
+                        <div id="user-options" class="d-inline"></div>
+                    </li>
+                    <li class="list-inline-item" style="margin-left:-15px;">
+                        <a href="../html/gioi-thieu.html">
+                            <i class="fa-solid fa-circle-info" style="color: #e41d07;"></i> Về chúng tôi
+                        </a>
+                    </li>
                 </ul>
-            </div>
+            </div>            
         </div>
     </div>
     <!-- end top header -->
@@ -101,13 +113,13 @@
                     </a>
                     <div class="dropdown-menu">
                         <h6 class="dropdown-header"><strong>Hãng điện thoại</strong></h6>
-                        <a class="dropdown-item" href="">Iphone</a>
-                        <a class="dropdown-item" href="">Samsung</a>
-                        <a class="dropdown-item" href="">Xiaomi</a>
-                        <a class="dropdown-item" href="">Oppo</a>
-                        <a class="dropdown-item" href="">Realme</a>
-                        <a class="dropdown-item" href="">Vivo</a>
-                        <a class="dropdown-item" href="">Nokia</a>
+                        <a class="dropdown-item" href="../html/iphone.html">Iphone</a>
+                        <a class="dropdown-item" href="../html/samsung.html">Samsung</a>
+                        <a class="dropdown-item" href="../html/xiaomi.html">Xiaomi</a>
+                        <a class="dropdown-item" href="../html/oppo.html">Oppo</a>
+                        <a class="dropdown-item" href="../html/realme.html">Realme</a>
+                        <a class="dropdown-item" href="../html/vivo.html">Vivo</a>
+                        <a class="dropdown-item" href="../html/nokia.html">Nokia</a>
                     </div>
                 </li>
 
@@ -116,20 +128,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/gio-hang.html"> <i class="fa-solid fa-sitemap"></i>
-                        Site map</a>
+                    <a class="nav-link" href="../html/site-map.html"> <i class="fa-solid fa-sitemap"></i>
+                        Site Map</a>
                 </li>
 
             </ul>
 
             <!-- nav right và mục tìm kiếm -->
-            <form id="nav-form-search" class="form-inline ml-auto" action="">
+            <form id="nav-form-search" class="form-inline ml-auto">
 
 
                 <!-- mục tìm kiếm -->
                 <div class="input-group" id="input-search-top">
                     <!-- Danh mục sản phẩm -->
-                    <select name="" id="select-product-category" class="custom-select">
+                    <select name="product_category" id="select-product-category" class="custom-select">
                         <option value="all">Tất cả sản phẩm</option>
                         <option value="Iphone">Iphone</option>
                         <option value="Samsung">Samsung</option>
@@ -200,290 +212,302 @@
         </div>
 
         <br>
-
-        <div class="sale-banner">
-            <div class="row">
-                <img src="../images/Hot_Sale/hot-sale.gif" alt="">
-                <div class="category-buttons">
-                    <button class="btn btn-light" onclick="filterProducts('all')">ALL</button>
-                    <button class="btn btn-light" onclick="filterProducts('iphone')">Iphone</button>
-                    <button class="btn btn-light" onclick="filterProducts('samsung')">Samsung</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="countdown-timer">
-                    <div id="countdown"></div>
-                    <div class="progress mt-4">
-                        <span class="progress-text">FLASH SALE</span>
-                        <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar"
-                            style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100ư"></div>
+        <div class="sale-banner-container">
+            <div class="sale-banner">
+                <div class="row">
+                    <img src="../images/Hot_Sale/hot-sale.gif" alt="">
+                    <div class="category-buttons">
+                        <button class="btn btn-light" onclick="filterProducts('all')">ALL</button>
+                        <button class="btn btn-light" onclick="filterProducts('iphone')">Iphone</button>
+                        <button class="btn btn-light" onclick="filterProducts('samsung')">Samsung</button>
                     </div>
                 </div>
-            </div>
-            <div class="responsive1">
-                <div class="phone-item" data-category="iphone">
-                    <span class="tagSale">Giảm 16%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=1"><img src="../images/Hot_Sale/iphone15.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=1">iPhone 15 Pro Max 256GB |
-                                Chính hãng VN/A</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">34.990.000đ</div>
-                            <div class="product-discount">29.490.000đ</div>
-                        </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                <div class="row">
+                    <div class="countdown-timer">
+                        <div id="countdown"></div>
+                        <div class="progress mt-4">
+                            <span class="progress-text">FLASH SALE</span>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar"
+                                style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
-                <div class="phone-item" data-category="iphone">
-                    <span class="tagSale">Giảm 25%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=2"><img src="../images/Hot_Sale/iphone11_64gb.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=2">iPhone 11 64GB | Chính hãng
-                                VN/A</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">11.990.000đ</div>
-                            <div class="product-discount">8.990.000đ</div>
+                <div class="responsive1">
+                    <div class="phone-item" data-category="iphone">
+                        <span class="tagSale">Giảm 16%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=1"><img src="../images/Hot_Sale/iphone15.png"
+                                    alt="iphone15" ></a>
                         </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-item" data-category="iphone">
-                    <span class="tagSale">Giảm 22%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=3"><img src="../images/Hot_Sale/iphone-13.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=3">iPhone 13 128GB | Chính hãng
-                                VN/A</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">17.290.000đ</div>
-                            <div class="product-discount">13.490.000đ</div>
-                        </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=1">iPhone 15 Pro Max 256GB |
+                                    Chính hãng VN/A</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">34.990.000đ</div>
+                                <div class="product-discount">29.490.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="phone-item" data-category="iphone">
-                    <span class="tagSale">Giảm 25%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=4"><img src="../images/Hot_Sale/iphone14-pro.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=4">iPhone 14 Pro Max 128GB |
-                                Chính hãng VN/A</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">29.990.000đ</div>
-                            <div class="product-discount">25.590.000đ</div>
+                    <div class="phone-item" data-category="iphone">
+                        <span class="tagSale">Giảm 25%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=2"><img src="../images/Hot_Sale/iphone11_64gb.png"
+                                    alt="iphone11" ></a>
                         </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-item" data-category="iphone">
-                    <span class="tagSale">Giảm 27%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=5"><img
-                                src="../images/Hot_Sale/iphone11_128gb.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=5">iPhone 11 128GB | Chính hãng
-                                VN/A</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">13.990.000đ</div>
-                            <div class="product-discount">10.190.000đ</div>
-                        </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=2">iPhone 11 64GB | Chính
+                                    hãng
+                                    VN/A</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">11.990.000đ</div>
+                                <div class="product-discount">8.990.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="phone-item" data-category="samsung">
-                    <span class="tagSale">Giảm 38%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=6"><img
-                                src="../images/Hot_Sale/Samsung_Galaxy_S21_FE.webp" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=6">Samsung Galaxy S21 FE 8GB
-                                128GB</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">16.990.000đ</div>
-                            <div class="product-discount">10.500.000đ</div>
+                    <div class="phone-item" data-category="iphone">
+                        <span class="tagSale">Giảm 22%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=3"><img src="../images/Hot_Sale/iphone-13.png"
+                                    alt="iphone13" ></a>
                         </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-item" data-category="samsung">
-                    <span class="tagSale">Giảm 27%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=7"><img
-                                src="../images/Hot_Sale/samsung-s23-fe.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=7">Samsung Galaxy S23 FE 5G 8GB
-                                128GB</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">14.890.000đ</div>
-                            <div class="product-discount">10.890.000đ</div>
-                        </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=3">iPhone 13 128GB | Chính
+                                    hãng
+                                    VN/A</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">17.290.000đ</div>
+                                <div class="product-discount">13.490.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="phone-item" data-category="samsung">
-                    <span class="tagSale">Giảm 32%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=8"><img
-                                src="../images/Hot_Sale/samsung-s23-ulatra.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=8">Samsung Galaxy S23 Ultra 12GB
-                                512GB</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">36.990.000đ</div>
-                            <div class="product-discount">24.990.000đ</div>
+                    <div class="phone-item" data-category="iphone">
+                        <span class="tagSale">Giảm 25%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=4"><img src="../images/Hot_Sale/iphone14-pro.png"
+                                    alt="iphone14-pro" ></a>
                         </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-item" data-category="samsung">
-                    <span class="tagSale">Giảm 33%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=9"><img
-                                src="../images/Hot_Sale/samsung-z-fold5.png" /></a>
-                    </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=9">Samsung Galaxy Z Fold5 12GB
-                                512GB</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">44.990.000đ</div>
-                            <div class="product-discount">29.990.000đ</div>
-                        </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
-                        </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=4">iPhone 14 Pro Max 128GB |
+                                    Chính hãng VN/A</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">29.990.000đ</div>
+                                <div class="product-discount">25.590.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="phone-item" data-category="samsung">
-                    <span class="tagSale">Giảm 48%</span>
-                    <div class="img-phone-item">
-                        <a href="product-detail.html?productID=10"><img
-                                src="../images/Hot_Sale/samsung-z-lip5.png" /></a>
+                    <div class="phone-item" data-category="iphone">
+                        <span class="tagSale">Giảm 27%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=5"><img src="../images/Hot_Sale/iphone11_128gb.png"
+                                    alt="iphone11-128gb" ></a>
+                        </div>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=5">iPhone 11 128GB | Chính
+                                    hãng
+                                    VN/A</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">13.990.000đ</div>
+                                <div class="product-discount">10.190.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-phone-item">
-                        <div class="name-phone"><a href="product-detail.html?productID=10">Samsung Galaxy Z Flip5 8GB
-                                512GB</a></div>
-                        <div class="product-price-container">
-                            <div class="product-price">29.990.000đ</div>
-                            <div class="product-discount">15.490.000đ</div>
+                    <div class="phone-item" data-category="samsung">
+                        <span class="tagSale">Giảm 38%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=6"><img
+                                    src="../images/Hot_Sale/Samsung_Galaxy_S21_FE.webp" alt="samsung-S21" ></a>
                         </div>
-                        <div class="notification-box">
-                            Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=6">Samsung Galaxy S21 FE 8GB
+                                    128GB</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">16.990.000đ</div>
+                                <div class="product-discount">10.500.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
                         </div>
-                        <div class="iconProduct">
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <span>Yêu thích</span>
-                            <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                    </div>
+                    <div class="phone-item" data-category="samsung">
+                        <span class="tagSale">Giảm 27%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=7"><img src="../images/Hot_Sale/samsung-s23-fe.png"
+                                    alt="samsung-s23" ></a>
+                        </div>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=7">Samsung Galaxy S23 FE 5G
+                                    8GB
+                                    128GB</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">14.890.000đ</div>
+                                <div class="product-discount">10.890.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-category="samsung">
+                        <span class="tagSale">Giảm 32%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=8"><img
+                                    src="../images/Hot_Sale/samsung-s23-ulatra.png" alt="samsung-s23" ></a>
+                        </div>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=8">Samsung Galaxy S23 Ultra
+                                    12GB
+                                    512GB</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">36.990.000đ</div>
+                                <div class="product-discount">24.990.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-category="samsung">
+                        <span class="tagSale">Giảm 33%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=9"><img src="../images/Hot_Sale/samsung-z-fold5.png"
+                                    alt="samsung-z-fold5" ></a>
+                        </div>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=9">Samsung Galaxy Z Fold5
+                                    12GB
+                                    512GB</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">44.990.000đ</div>
+                                <div class="product-discount">29.990.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-item" data-category="samsung">
+                        <span class="tagSale">Giảm 48%</span>
+                        <div class="img-phone-item">
+                            <a href="product-detail.html?productID=10"><img src="../images/Hot_Sale/samsung-z-lip5.png"
+                                    alt="samsung-z-lip5" ></a>
+                        </div>
+                        <div class="text-phone-item">
+                            <div class="name-phone"><a href="product-detail.html?productID=10">Samsung Galaxy Z Flip5
+                                    8GB
+                                    512GB</a></div>
+                            <div class="product-price-container">
+                                <div class="product-price">29.990.000đ</div>
+                                <div class="product-discount">15.490.000đ</div>
+                            </div>
+                            <div class="notification-box">
+                                Không phí chuyển đổi khi trả góp 0% qua thẻ tín dụng kỳ hạn 3-6 tháng
+                            </div>
+                            <div class="iconProduct">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <span>Yêu thích</span>
+                                <i class="fa-regular fa-heart" style="color: #d51515;"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -498,7 +522,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 17%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=11"><img src="../images/Hot_Phone/oppo-a77.png" /></a>
+                        <a href="product-detail.html?productID=11"><img src="../images/Hot_Phone/oppo-a77.png"
+                                alt="oppo-a77" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=11">OPPO A77s 8GB 128GB Chính
@@ -524,8 +549,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 35%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=13"><img
-                                src="../images/Hot_Phone/realme-11-pro.png" /></a>
+                        <a href="product-detail.html?productID=13"><img src="../images/Hot_Phone/realme-11-pro.png"
+                                alt="realme-11-pro" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=13">realme 11 Pro (8GB - 256GB)
@@ -551,7 +576,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 11%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=15"><img src="../images/Hot_Phone/v29e.png" /></a>
+                        <a href="product-detail.html?productID=15"><img src="../images/Hot_Phone/v29e.png"
+                                alt="v29e" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=15">vivo V29E 8GB 256GB Chính
@@ -577,7 +603,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 32%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=17"><img src="../images/Hot_Phone/vivov25e.webp" /></a>
+                        <a href="product-detail.html?productID=17"><img src="../images/Hot_Phone/vivov25e.webp"
+                                alt="vivov25e" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=17">vivo V25e 8GB 128GB Chính
@@ -604,7 +631,7 @@
                     <span class="tagSale2">Giảm 12%</span>
                     <div class="img-phone-item2">
                         <a href="product-detail.html?productID=19"><img
-                                src="../images/Hot_Phone/xiaomi-redmi-note-13.png" /></a>
+                                src="../images/Hot_Phone/xiaomi-redmi-note-13.png" alt="xiaomi-redmi-note-13" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=19">Xiaomi Redmi Note 13 (6GB
@@ -630,7 +657,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 16%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=1"><img src="../images/Hot_Sale/iphone15.png" /></a>
+                        <a href="product-detail.html?productID=1"><img src="../images/Hot_Sale/iphone15.png"
+                                alt="iphone15" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=1">iPhone 15 Pro Max 256GB |
@@ -656,7 +684,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 22%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=3"><img src="../images/Hot_Sale/iphone-13.png" /></a>
+                        <a href="product-detail.html?productID=3"><img src="../images/Hot_Sale/iphone-13.png"
+                                alt="iphone13" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=3">iPhone 13 128GB | Chính hãng
@@ -682,8 +711,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 27%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=5"><img
-                                src="../images/Hot_Sale/iphone11_128gb.png" /></a>
+                        <a href="product-detail.html?productID=5"><img src="../images/Hot_Sale/iphone11_128gb.png"
+                                alt="iphone11-128gb" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=5">iPhone 11 128GB | Chính hãng
@@ -709,8 +738,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 27%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=7"><img
-                                src="../images/Hot_Sale/samsung-s23-fe.png" /></a>
+                        <a href="product-detail.html?productID=7"><img src="../images/Hot_Sale/samsung-s23-fe.png"
+                                alt="samsung-s23-fe" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=7">Samsung Galaxy S23 FE 5G 8GB
@@ -736,8 +765,8 @@
                 <div class="phone-item2">
                     <span class="tagSale2">Giảm 33%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=9"><img
-                                src="../images/Hot_Sale/samsung-z-fold5.png" /></a>
+                        <a href="product-detail.html?productID=9"><img src="../images/Hot_Sale/samsung-z-fold5.png"
+                                alt="samsung-z-fold5" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=9">Samsung Galaxy Z Fold5 12GB
@@ -784,15 +813,15 @@
 
         <br>
 
-        <div class="bestSellPhone"  style="width: 89.8%; margin-left: 89px;">
+        <div class="bestSellPhone" style="width: 89.8%; margin-left: 89px;">
             <h3 class="text-danger" style="font-weight: bold;margin-left: -5px;">ĐIỆN THOẠI BÁN CHẠY NHẤT</h3>
             <br>
-            <di v class="responsive2">
+            <div class="responsive2">
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 28%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=12"><img
-                                src="../images/Hot_Phone/oppo_reno_pro_plus.png" /></a>
+                        <a href="product-detail.html?productID=12"><img src="../images/Hot_Phone/oppo_reno_pro_plus.png"
+                                alt="oppo-reno" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=12">OPPO Reno10 Pro+ 5G 12GB
@@ -818,8 +847,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 28%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=14"><img
-                                src="../images/Hot_Phone/realme-c53-vang-1.webp" /></a>
+                        <a href="product-detail.html?productID=14"><img src="../images/Hot_Phone/realme-c53-vang-1.webp"
+                                alt="realme-c53" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=14">realme C53 (8GB 256GB) Chính
@@ -845,7 +874,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 10%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=16"><img src="../images/Hot_Phone/v30e.png" /></a>
+                        <a href="product-detail.html?productID=16"><img src="../images/Hot_Phone/v30e.png"
+                                alt="v30e" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=16">vivo V30E 12GB 256GB Chính
@@ -871,8 +901,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 13%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=18"><img
-                                src="../images/Hot_Phone/xiaomi-14-xanh-la.png" /></a>
+                        <a href="product-detail.html?productID=18"><img src="../images/Hot_Phone/xiaomi-14-xanh-la.png"
+                                alt="xiaomi-14" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=18">Xiaomi 14 (12GB 256GB) Chính
@@ -898,8 +928,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 15%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=20"><img
-                                src="../images/Hot_Phone/Xiaomi_POCO_X6.webp" /></a>
+                        <a href="product-detail.html?productID=20"><img src="../images/Hot_Phone/Xiaomi_POCO_X6.webp"
+                                alt="xiaomi-POCO" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=20">Xiaomi POCO X6 Pro 5G 8GB
@@ -925,7 +955,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 25%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=2"><img src="../images/Hot_Sale/iphone11_64gb.png" /></a>
+                        <a href="product-detail.html?productID=2"><img src="../images/Hot_Sale/iphone11_64gb.png"
+                                alt="iphone11" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=2">iPhone 11 64GB | Chính hãng
@@ -951,7 +982,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 25%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=4"><img src="../images/Hot_Sale/iphone14-pro.png" /></a>
+                        <a href="product-detail.html?productID=4"><img src="../images/Hot_Sale/iphone14-pro.png"
+                                alt="iphone14-pro" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=4">iPhone 14 Pro Max 128GB |
@@ -978,7 +1010,7 @@
                     <span class="tagSale2">Giảm 38%</span>
                     <div class="img-phone-item2">
                         <a href="product-detail.html?productID=6"><img
-                                src="../images/Hot_Sale/Samsung_Galaxy_S21_FE.webp" /></a>
+                                src="../images/Hot_Sale/Samsung_Galaxy_S21_FE.webp" alt="samsung-s21" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=6">Samsung Galaxy S21 FE 8GB
@@ -1004,8 +1036,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 32%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=8"><img
-                                src="../images/Hot_Sale/samsung-s23-ulatra.png" /></a>
+                        <a href="product-detail.html?productID=8"><img src="../images/Hot_Sale/samsung-s23-ulatra.png"
+                                alt="samsung-s23" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=8">Samsung Galaxy S23 Ultra 12GB
@@ -1031,8 +1063,8 @@
                 <div class="phone-item2" style="height: 400px;">
                     <span class="tagSale2">Giảm 48%</span>
                     <div class="img-phone-item2">
-                        <a href="product-detail.html?productID=10"><img
-                                src="../images/Hot_Sale/samsung-z-lip5.png" /></a>
+                        <a href="product-detail.html?productID=10"><img src="../images/Hot_Sale/samsung-z-lip5.png"
+                                alt="samsung-z-lip5" ></a>
                     </div>
                     <div class="text-phone-item2">
                         <div class="name-phone2"><a href="product-detail.html?productID=10">Samsung Galaxy Z Flip5 8GB
@@ -1055,7 +1087,7 @@
                         </div>
                     </div>
                 </div>
-            </di>
+            </div>
         </div>
 
         <br>
@@ -1185,7 +1217,7 @@
                         <div class="introduce">
                             <h4 style="font-weight: bold;">MobiShop</h4>
                             <ul>
-                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="../html/gioi-thieu.html">Giới thiệu</a></li>
                                 <li><a href="#">Tuyển dụng</a></li>
                                 <li><a href="#">Black Friday 2024</a></li>
                             </ul>
@@ -1194,23 +1226,29 @@
                         <div class="contactFooter">
                             <h4 style="font-weight: bold;">Liên hệ</h4>
                             <ul>
-                                <i class="fa-solid fa-location-dot" style="color: #63E6BE;"></i>
-                                <span>Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</span>
-                                <br>
-                                <i class="fa-solid fa-phone" style="color: #74C0FC;"></i>
-                                <a href="tel:+0898345789">Điện thoại: 0898.345.789</a>
-                                <br>
-                                <i class="fa-solid fa-envelope" style="color: #e62e00;"></i>
-                                <a href="mailto:cskh@mobishop.com">Email: cskh@mobishop.com</a>
-                                <br>
-                                <i class="fa-solid fa-globe" style="color: #63E6BE;"></i>
-                                <a href="#">Website: </a>
+                                <li>
+                                    <i class="fa-solid fa-location-dot" style="color: #63E6BE;"></i>
+                                    <span>Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-phone" style="color: #74C0FC;"></i>
+                                    <a href="tel:+0898345789">Điện thoại: 0898.345.789</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-envelope" style="color: #e62e00;"></i>
+                                    <a href="mailto:cskh@mobishop.com">Email: cskh@mobishop.com</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-globe" style="color: #63E6BE;"></i>
+                                    <a href="https://luxkaito.github.io/BTL_HTCNW/html/index.html">Website: mobishop.com.vn</a>
+                                </li>
                             </ul>
                         </div>
 
+
                         <div class="interactFooter">
                             <h4 style="font-weight: bold;">Tương tác với chúng tôi</h4>
-                            <ul class="bottom-social-media" class="font-size-lagre">
+                            <ul class="bottom-social-media">
                                 <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-facebook"></i></a></li>
                                 <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-instagram"></i></a></li>
                                 <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-tiktok"></i></a></li>
@@ -1243,7 +1281,6 @@
                             <div class="col-md-12">
                                 <hr>
                                 <p class="text-center"> ©2024 MobiShop by Nguyễn Huy Khang & Lê Quốc Hưng</p>
-                                <p class="text-center"> Nguyễn Huy Khang - 22710921 - DHHTTT18BTT</p>
                             </div>
                         </div>
                     </div>

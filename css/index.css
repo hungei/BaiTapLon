@@ -53,7 +53,6 @@ ul {
   color: orangered;
 }
 
-
 .nav-item {
   margin-right: 10px;
 }
@@ -111,6 +110,19 @@ ul {
   height: 650px;
 }
 
+.breadcrumb {
+  background-color: #f2f4f7;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: black;
+}
+
+.breadcrumb a:hover {
+  color: red;
+}
+
 .main {
   background-color: #f2f4f7;
 }
@@ -144,15 +156,43 @@ ul {
   margin-bottom: 20px;
 }
 
+/* Container bao bên ngoài với overflow: hidden để ngăn tràn */
+.sale-banner-container {
+  overflow: hidden;
+  max-width: 100%; /* Đảm bảo chiều rộng theo ý muốn */
+  position: relative;
+}
+
+/* Cài đặt cho phần tử `.sale-banner` chính */
 .sale-banner {
   background-color: #f9415b;
+  position: relative;
+  overflow: visible; /* Cho phép các mũi tên nằm ngoài khung */
+  max-width: 100%;
   width: 90%;
-  /* Điều chỉnh kích thước theo ý muốn */
   height: 610px;
-  /* Giữ tỷ lệ khung hình */
   margin-left: 85px;
   border-radius: 15px;
+  padding: 0; /* Bỏ padding nếu không cần thiết */
 }
+
+/* Căn chỉnh vị trí mũi tên */
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2; /* Đảm bảo mũi tên nằm trên slider */
+  color: #fff;
+}
+
+.slick-prev {
+  left: -30px; /* Đẩy mũi tên ra ngoài khung bên trái */
+}
+
+.slick-next {
+  right: -30px; /* Đẩy mũi tên ra ngoài khung bên phải */
+}
+
 
 .sale-banner img {
   margin-left: 20px;
@@ -165,22 +205,16 @@ ul {
   margin-top: 20px;
 }
 
-.slick-list {
-  padding: 0 10px;
-  /* Đảm bảo padding bên trong slider để khoảng trống không bị cắt */
-  border-radius: 15px;
-}
-
 .responsive1 .phone-item {
   display: flex;
-  max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
+  max-width: 100%;
+  /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
   height: 400px;
   background-color: #ffffff;
   justify-content: center;
   margin: 0 10px;
   padding: 10px 0px;
   border-radius: 15px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .phone-item .tagSale {
@@ -190,6 +224,11 @@ ul {
   /* Bo tròn bên phải */
   padding: 12px 1px;
   /* Điều chỉnh kích thước tag */
+}
+
+.phone-item {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
 }
 
 .phone-item:hover {
@@ -217,7 +256,6 @@ ul {
   justify-content: flex-start;
   position: relative;
 }
-
 
 .name-phone {
   padding: 10px;
@@ -273,7 +311,8 @@ ul {
 
 .responsive2 .phone-item2 {
   display: flex;
-  max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
+  max-width: 100%;
+  /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
   height: 400px;
   background-color: #ffffff;
   justify-content: center;
@@ -291,6 +330,11 @@ ul {
   /* Bo tròn bên phải */
   padding: 12px 1px;
   /* Điều chỉnh kích thước tag */
+}
+
+.phone-item2 {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
 }
 
 .phone-item2:hover {
@@ -374,7 +418,6 @@ ul {
 .mainBanner {
   width: 89.8%;
   margin-left: 90px;
-
 }
 
 .banner-item1 img {
@@ -453,6 +496,7 @@ ul {
   overflow: hidden;
   margin-left: 53px;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
   /* Thêm hiệu ứng chuyển tiếp cho thay đổi */
 }
 
@@ -466,7 +510,6 @@ ul {
 .newPostImg {
   background-color: #ffffff;
 }
-
 
 .newPostImg img {
   width: 100%;
@@ -569,7 +612,7 @@ ul {
 }
 
 .introduce li {
-  margin-top: 25px;
+  margin-top: 26px;
 }
 
 .introduce a {
@@ -615,7 +658,6 @@ ul {
 .bottom-social-media li {
   margin-top: 5px;
 }
-
 
 .pay ul {
   list-style: none;
